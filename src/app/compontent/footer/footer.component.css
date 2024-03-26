@@ -1,0 +1,19 @@
+.footer {
+    background-color: lightgray;
+    color:#493d05de;
+    padding: 20px ;
+    bottom: 0;
+    width: 100%;
+    font-size: bold;
+    position: absolute;
+  }
+  
+  .footer p{
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .footer a{
+    font-size: 15px;
+    font-weight: bold;
+    color: #493d05de;
+  }

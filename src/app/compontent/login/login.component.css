@@ -1,0 +1,56 @@
+@import '../../../assets/bootstrap-v4/css/bootstrap.css';
+input[type="submit"] {
+    background-color: rgba(170, 143, 23, 0.87);
+    box-sizing: border-box;
+    color: white;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    white-space: normal;
+  
+  }
+.forget{
+   color: rgba(170, 143, 23, 0.87);
+   font-family: Arial;
+   font-size: 16px;
+   
+ 
+}
+input[type="button"] {
+    background-color: rgba(170, 143, 23, 0.87);
+    box-sizing: border-box;
+    color: white;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    white-space: normal;
+  
+  }span>a {
+    font-family: Arial;
+    font-size: 16px;
+    text-align: center;
+    margin-left: 20px;
+  }
+  .p-elment{
+    width: 600px;
+    margin-top: 30px;
+  }
+
+  .field {
+    position: relative;
+  }
+  
+  .password-input {
+    position: relative;
+  }
+  
+  .password-input mat-icon {
+    color: rgba(170, 143, 23, 0.87);
+    position: absolute;
+    bottom: 8px; /* Adjust the distance from the bottom of the input */
+    right: 5px; /* Adjust the distance from the right of the input */
+    cursor: pointer;
+    width: 34px
+  }
+  
+  

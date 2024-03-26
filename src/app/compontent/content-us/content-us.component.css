@@ -1,0 +1,24 @@
+@import '../../../assets/bootstrap-v4/css/bootstrap.css';
+
+  h1{
+    padding-top: 20px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .p-elment{
+    width: 80%;
+    margin-top: 30px;
+  }
+  .page-container{
+   background-color: rgba(170, 143, 23, 0.87);
+  }
+  .blue-color {
+    color:teal;
+    font-size:40px ;
+}
+.vv{
+    color: rgba(170, 143, 23, 0.87);
+    font-size: 20px;
+    font-weight: bold;
+padding-left: 20px;
+}

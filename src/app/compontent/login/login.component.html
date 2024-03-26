@@ -1,0 +1,54 @@
+<app-home></app-home>
+<form [formGroup]="loginform" (ngSubmit)="loginUser()">
+  <div class="flex justify-content-center align-items-center h-full">
+    <p-card class="p-elment" >
+      <div class="text-center"> <a routerLink="/home"><img style="width: 200px;"
+        src="../../../assets/images/header/logo.png" alt="logo"></a></div>
+
+       <div class="field">
+        <label for="email">Email</label>
+        <input type="text" 
+        pInputText formControlName="email" 
+        class="w-full" 
+        name="email"
+         placeholder="Email"
+         required=""
+         />
+       <small *ngIf="email.invalid &&(email.dirty ||email.touched )"
+       class="block p-error">
+        <div *ngIf="email.errors?.['required']">email is required </div>
+        <div *ngIf="email.errors?.['email']">email  should be valid </div>
+       </small>
+       </div>
+       <div class="field">
+        <label for="password">password</label>
+        <div class="password-input">
+            <input type="{{ showPassword ? 'text' : 'password' }}" id="password" pInputText formControlName="password"  class="w-full" placeholder="At least 6 characters" required>
+            <mat-icon (click)="togglePasswordVisibility()" >
+                {{ showPassword ? 'visibility_off' : 'visibility' }}
+              </mat-icon>
+          </div>
+
+         <small *ngIf="password.invalid &&(password.dirty ||password.touched )"
+         class="block p-error">
+          <div *ngIf="password.errors?.['required']">password is required </div>
+         </small>
+    </div>
+         <small *ngIf="password.invalid &&(password.dirty ||password.touched )"
+         class="block p-error">
+          <div *ngIf="password.errors?.['required']">password is required </div>
+         </small>
+       <div class="mt-2"> <a class="  forget" href=""> Forget password</a></div>
+      
+       <input type="submit" id="Login" 
+       class="form-control"
+        value="submit" 
+        styleClass="w-full"
+       [disabled]="loginform.invalid">
+
+       <div class="mt-2" style="color: red;">Need an account? <a routerLink="/register"><input type="button" id="logi" class="form-control"
+        value="Create new account" /></a>
+        </div>
+    </p-card>
+    </div>
+</form>

@@ -1,0 +1,8 @@
+{
+    "/api": {
+        "target":"http://10.100.102.52:5000/api/Request",
+        "secure": false,
+        "changeOrigin": true
+      }
+  }
+  

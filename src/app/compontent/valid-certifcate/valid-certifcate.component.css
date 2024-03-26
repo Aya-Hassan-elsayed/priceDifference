@@ -1,0 +1,16 @@
+.page-link{
+    
+    color: #ee0659;
+    width: 100px;
+}
+.total-count {
+    border: 1px solid #ccc; /* Add border */
+    padding: 5px 10px; /* Add padding */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  height:33px;
+
+  }
+  
+  .total-count:hover {
+    background-color: #f0f0f0; /* Change background color on hover */
+  }

@@ -1,0 +1,52 @@
+<mat-toolbar class="nav" color="primary">
+    <mat-toolbar-row>
+      <a href="">
+        <img src="../../../assets/images/header/logo.png" id="logo" alt="logo" style="width:200%; height: 60px; margin-top: 10px;" />
+      </a>
+      <span style="flex: 1"></span>
+     
+      <span style="margin-right: 20px;"></span> <!-- Adds spacing between menu and user icons -->
+      <button mat-button [matMenuTriggerFor]="menu" aria-label="User Account">
+        <mat-icon>account_circle</mat-icon>
+        Login
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="login()"><a routerLink="/login"><input type="button" id="logi" class="form-control" value="Login" /></a>
+        </button>
+        <button mat-menu-item (click)="register()">Register</button>
+      </mat-menu>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <mat-sidenav-container class="amazon-like">
+    <mat-sidenav #sidenav opened="false" mode="side" position="end">
+      <mat-nav-list class="list">
+        <a mat-list-item routerLink="/" class="menu-item-primary">
+          <mat-icon>home</mat-icon>
+          Home
+        </a>
+        <a mat-list-item routerLink="/about" class="menu-item-secondary">
+          <mat-icon>info</mat-icon>
+          About
+        </a>
+        <a mat-list-item routerLink="/contact" class="menu-item-tertiary">
+          <mat-icon>contact_support</mat-icon>
+          Contact Us
+        </a>
+        <a mat-list-item routerLink="/help" class="menu-item-quaternary">
+          <mat-icon>help</mat-icon>
+          Help
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <div style="height: 88vh;">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
