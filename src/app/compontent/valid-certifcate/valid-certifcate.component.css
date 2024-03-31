@@ -14,3 +14,33 @@
   .total-count:hover {
     background-color: #f0f0f0; /* Change background color on hover */
   }
+  /* styles.css */
+/* styles.css */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.search-form {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.search-field,
+.select-field,
+.date-field {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+/* Add more styling as needed */

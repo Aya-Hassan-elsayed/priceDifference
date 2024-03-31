@@ -11,7 +11,7 @@ export class ValidCertifcateService {
   constructor(private http: HttpClient) {}
 
   getAllData(pagenumber: number, searchQuery: any, requestTypeFilter: string, usagetypeFilter: string, addedDateFilter: string): Observable<any> {
-    return this.http.get(`${environment.baseApi}/LiveValidCertificate?pagenumber=${pagenumber}&requestNumber=${searchQuery}&requestType=${requestTypeFilter}&usagetype=${usagetypeFilter}&addedDateFilter=${addedDateFilter}`);
+    return this.http.get(`${environment.baseApi}/ValidCertificate?pagenumber=${pagenumber}&requestNumber=${searchQuery}&requestType=${requestTypeFilter}&usagetype=${usagetypeFilter}&addedDateFilter=${addedDateFilter}`);
   }
   
 }

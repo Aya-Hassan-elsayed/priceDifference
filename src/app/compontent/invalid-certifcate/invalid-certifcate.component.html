@@ -2,10 +2,10 @@
 <ngx-spinner  bdColor = "rgba(0, 0, 0, 0.8)" size = "large" color = "#ee0659" type = "ball-circus" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
 
 <app-header></app-header>
-<form class="row mt-3" style="width: 100%;">
+<form class="row mt-6" style="width: 100%;">
   <div class="col-md-3">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 pl-5">
         <mat-form-field appearance="outline" class="w-100">
           <mat-label>Search by RequestNumber</mat-label>
           <input matInput placeholder="Search by RequestNumber" (change)="search($event)" #input/>
@@ -16,6 +16,7 @@
       </div>
     </div>
   </div>
+ 
  
   <div class="col-md-3">
     <div class="row">
@@ -45,7 +46,7 @@
     <div class="row">
       <div class="col-md-12">
         <mat-form-field appearance="outline" class="w-100">
-          <mat-label>Added Date Filter:</mat-label>
+          <mat-label>Date Filter:</mat-label>
           <input matInput type="date" id="addedDateFilter" (change)="onDateFilterChange($event)" style="width: 100%; color: #ee0659;">
         </mat-form-field>
       </div>
@@ -159,7 +160,7 @@
           <li class="page-item"><button class="page-link" (click)="Pagination.onLast() " >least</button></li>
         </ul>
       </nav>
-      <div class="total-count btn "><span style="color: #ee0659;">Total Count: </span>{{ totalCount }}</div>
+      
 
       </div>
       </div>

@@ -128,7 +128,7 @@ export class AllDataComponent  implements OnInit {
     this.service.getAllData(pageNumber, searchQuery, requestTypeFilter, usageTypeFilter, addedDateFilter).subscribe(
       (res: any) => {
         console.log('Response from API:', res);
-        this.totalCount = res.counts;
+        this.totalCount = res.totalcount;
         this.dataSource.data = this.mappingTasks(res.data);
       },
       (error) => {
@@ -137,28 +137,36 @@ export class AllDataComponent  implements OnInit {
       }
     );
   }
-
   mappingTasks(Request: any[]): PeriodicElement[] {
     if (!Array.isArray(Request) || Request.length === 0) {
       console.error('Data is undefined or not an array.', Request);
       return [];
     }
+    
     return Request.map((item: any) => {
+      let areaValue: number | string = 0; // Initialize areaValue with a default value
+      
+      if (Array.isArray(item.after.area)) {
+        areaValue = item.after.area.join(' , ') as unknown as number; // Convert array to string, then to number
+      } else {
+        areaValue = item.after.area as number; // If area is not an array, directly assign it to areaValue
+      }
+    
       return {
         requestNumber: item.after.requestNumber,
-        requestType: item.after.requestType,
-        usageType: item.after.usageType,
-        price: item.after.price,
-        area: item.after.area[0],
-        priceBfor: item.before.priceBfor,
-        areabefor: item.before.areabefor,
-        typeBefor: item.before.typeBefor,
-        usageTypeBefor: item.before.usageTypeBefor,
-        priceDefernce: item.priceDefernce,
+        requestType: item.after.requestType  || 'null',
+        usageType: item.after.usageType   || 'null',
+        price: item.after.price  || 'null',
+        area: areaValue ,
+        priceBfor: item.before.priceBfor || 'null',
+        areabefor: item.before.areabefor  || 'null',
+        typeBefor: item.before.typeBefor  || 'null',
+        usageTypeBefor: item.before.usageTypeBefor  || 'null',
+        priceDefernce: item.priceDefernce ,
       };
     });
   }
-
+  
   search(event: any) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
