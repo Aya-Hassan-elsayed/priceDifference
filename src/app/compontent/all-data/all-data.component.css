@@ -14,3 +14,12 @@
   .total-count:hover {
     background-color: #f0f0f0;
   }
+  .date{
+    height: 55px;
+    width: calc(100% - 32px); 
+    color: #ee0659; 
+    padding-right: 8px;
+    font-size: 17px;
+    border-radius: 5px;
+    border-color: #ccc;
+  }

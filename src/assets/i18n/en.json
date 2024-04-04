@@ -1,0 +1,49 @@
+{
+    
+    "tabel":{
+        "No":"No.",
+        "RequestNumber":"RequestNumber",
+        "Type_Before":"Type_Before",
+        "UsageType_Before":"UsageType_Before",
+        "Area_Before":"Area_Before",
+        "Price_Before":"Price_Before",
+        "Type_After":"Type_After",
+        "UsageType_After":"UsageType_After",
+        "Area_After":"Area_After",
+        "Price_After":"Price_After",
+        "Price_Defernce":"Price_Defernce"
+    },
+    "buttons":{
+        "Valid Certificate":"Valid Certificate",
+        "Invalid Certificate":"Invalid Certificate",
+        "Get All Certificates":" All Certificates"
+    },
+    "navbar":{
+        "Certificate":"Certificate",
+        "Home":"Home",
+        "Contacts":"Contact Us"
+    },
+    "input":{
+        "Search by RequestNumber":"Search by RequestNumber",
+        "Type_After":"Type_After",
+        "UsageType_After":"UsageType_After",
+        "Date_Filter":"Date Filter"
+    },
+    "footer":{
+        "reserved":"All Rights Reserved © 2022"
+
+    },
+    "general":{
+       "Loading" :"Loading",
+       "tr":"The item does not exist",
+       "text":"Technological Center for Real Estate Cadastral Registration"
+    },
+    "pagnation":{
+        "First":"First",
+         "Previous":"Previous",
+         "Next":"Next",
+         "least":"least",
+         "totalCount":"totalCount"
+    }
+
+}

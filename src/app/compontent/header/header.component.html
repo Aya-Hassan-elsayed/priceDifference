@@ -1,4 +1,4 @@
-<div class="navbar">
+<div class="navbar" dir="ltr">
     <div class="start">
         <img src="../../../assets/images/header/logo.png" id="logo" alt="logo" style="width:200%; height: 60px; margin-top: 10px;" />
     </div>
@@ -8,28 +8,34 @@
     <div fxShow="true" fxHide.lt-md="true" >
       <a mat-button routerLink="/lists">
         <mat-icon>home</mat-icon>
-      <span style=" color: #493d05de ;font-weight: bold;"> Home</span> 
+      <span style=" color: #493d05de ;font-weight: bold;"> {{'navbar.Home'|translate}}</span> 
       </a> 
       <button mat-button [matMenuTriggerFor]="menu" aria-label="User Account">
-        <span style=" color: #493d05de ;font-weight: bold;"> Certificate</span>
+        <span style=" color: #493d05de ;font-weight: bold;">{{'navbar.Certificate'|translate}} </span>
         <mat-icon>arrow_drop_down</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item  (click)="getvalidcertificate()">
           <mat-icon style=" color: rgba(170, 143, 23, 0.87);;
-          "> home</mat-icon>Valid_Certificate
+          "> home</mat-icon>{{'buttons.Valid Certificate'|translate}}
         </button>
         <button mat-menu-item (click)="getinvalidcertificate()">
           <mat-icon style=" color: rgba(170, 143, 23, 0.87);
-          ">home</mat-icon>invalid certificate</button>
+          ">home</mat-icon>{{'buttons.Invalid Certificate'|translate}}</button>
         <button mat-menu-item (click)="getallcertificate()">
           <mat-icon style=" color: rgba(170, 143, 23, 0.87); 
-          ">home</mat-icon>getAllcertificate</button>
+          ">home</mat-icon>{{'buttons.Get All Certificates'|translate}}</button>
       </mat-menu>
-      <a mat-button routerLink="/content-us">
+      <!-- <a mat-button routerLink="/content-us">
         <mat-icon>contact_support</mat-icon>
-        <span style=" color: #493d05de;font-weight: bold;"> Contact Us</span>
-      </a>
+        <span style=" color: #493d05de;font-weight: bold;"> {{'navbar.Contacts'|translate}} </span>
+      </a> -->
+      <a mat-button (click)="changeLanguage()">
+        <span style="color: #493d05de; font-weight: bold;">{{ lang == 'en' ? '(ع)' : '(en)' }}</span>
+        <img *ngIf="lang == 'ar'" src="../../../assets/images/header/eng.png" style="width: 20px; height: 20px;" >
+        <img *ngIf="lang == 'en'" src="../../../assets/images/header/ar.png" style="width: 20px; height: 20px;" >
+    </a>
+    
     </div>
 
 <button mat-button [matMenuTriggerFor]="menu">

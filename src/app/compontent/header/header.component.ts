@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { NgxSpinnerService } from 'ngx-spinner';
-
+import { MatMenuPanel } from '@angular/material/menu'; // Import MatMenuPanel
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,13 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  constructor(private router: Router,private spinner: NgxSpinnerService  ){}
+  menu!: MatMenuPanel<any>;
+
+  lang:any="en"
+  constructor(private router: Router,private spinner: NgxSpinnerService ,private translate:TranslateService ){
+    console.log(this.translate)
+    this.lang=this.translate.currentLang
+  }
   getvalidcertificate(){
     this.showSpinner();
     // Your logic for getvalidcertificate() here
@@ -48,5 +55,14 @@ export class HeaderComponent {
   private hideSpinner(): void {
     this.spinner.hide();
   }
+  changeLanguage(){
+   if(this.lang=="en") {
+    localStorage.setItem('language','ar')
+   
+   }else{
+    localStorage.setItem('language','en')
 
+   }
+   window.location.reload()
+  }
 }

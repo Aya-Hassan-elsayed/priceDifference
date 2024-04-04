@@ -1,9 +1,12 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit,ViewChild,AfterViewInit  } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
+import { NgbCalendar, NgbDate, NgbDatepickerConfig, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateService } from '@ngx-translate/core';
+import { DatePipe } from '@angular/common';
 import { AllDataService } from 'src/app/services/all-data.service';
 
 export interface PeriodicElement {
@@ -19,13 +22,15 @@ export interface PeriodicElement {
   typeBefor:string;
   usageTypeBefor:string;
   //derfernce 
-  priceDefernce:number
+  priceDefernce:number;
+  
 
 }
 @Component({
   selector: 'app-all-data',
   templateUrl: './all-data.component.html',
-  styleUrls: ['./all-data.component.css']
+  styleUrls: ['./all-data.component.css'],
+  
 })
 export class AllDataComponent  implements OnInit {
   displayedColumns: string[] = [
@@ -49,6 +54,7 @@ export class AllDataComponent  implements OnInit {
   selectedFilter: string = '';
   usageTypeFilter: string = '';
   requestTypeFilter: string = '';
+
 
   requestTypeMap: { [key: number]: string } = {
     0: "وحدة",
@@ -117,7 +123,11 @@ export class AllDataComponent  implements OnInit {
     { label: '  مخزن ', value: 14 },
     { label: '   مصنع', value: 15 },
   ];
-  constructor(private service:AllDataService, public dialog: MatDialog,private router: Router) {}
+
+
+  constructor(private service:AllDataService, public dialog: MatDialog,private router: Router) {
+
+   }
 
 
   ngOnInit(): void {

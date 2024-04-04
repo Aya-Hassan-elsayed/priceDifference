@@ -1,0 +1,50 @@
+{
+    
+    "tabel":{
+        "No":"العدد",
+        "RequestNumber":"رقم الطلب",
+        "Type_Before":"نوع الطلب قبل",
+        "UsageType_Before":"الاٍستخدام قبل",
+        "Area_Before":" المساحة قبل ",
+        "Price_Before":"السعر قبل",
+        "Type_After":"نوع الطلب بعد",
+        "UsageType_After":"الاستخدام بعد ",
+        "Area_After":"المساحة بعد",
+        "Price_After":"السعر بعد",
+        "Price_Defernce":"فرق السعر"
+    },
+    "buttons":{
+        "Valid Certificate":"الشهادات غير محجوزة ",
+        "Invalid Certificate":"الشهادات المحجوزة ",
+        "Get All Certificates":"كل الشهادات"
+    },
+    "navbar":{
+        "Certificate":"الشهادات",
+        "Home":"الصفحة الرئسية",
+        " Contacts":"  تواصل بنا"
+    },
+    "input":{
+        "Search by RequestNumber":"البحث عن طريق رقم الطلب ",
+        "Type_After":"نوع الطلب بعد الرفع المساحي ",
+        "UsageType_After":"الاستخدام بعد الرفع المسلحي ",
+        "Date_Filter":"تاريخ الطباعة"
+    },
+    "footer":{
+        "reserved":"جميع الحقوق محفوظة © ٢٠٢٢"
+
+    },
+    "general":{
+       "Loading" :"أنتظار",
+       "tr":"لا يوجد اي عناصر",
+       "text":"المركز التكنولوجي للتسجيل المساحي العقاري"
+    },
+
+    "pagnation":{
+        "First":"الاول",
+         "Previous":"السابق",
+         "Next":"التالي",
+         "least":"الاخير",
+         "totalCount":"كل العناصر"
+    }
+
+}

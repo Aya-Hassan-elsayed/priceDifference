@@ -15,7 +15,6 @@ import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { ReactiveFormsModule } from '@angular/forms';
-import{HttpClientModule}from'@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MessageService } from 'primeng/api';
@@ -44,6 +43,11 @@ import { PaginationDirective } from './directives/pagination.directive';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+
 
 
 
@@ -94,7 +98,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     NgxPaginationModule,  
     MatFormFieldModule,
     MatSelectModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatDatepickerModule,
     NgxSpinnerModule.forRoot({ type: 'ball-circus' }),
+    TranslateModule.forRoot({
+      defaultLanguage:'en',
+
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+  })
    
 
   ],
@@ -103,3 +119,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}

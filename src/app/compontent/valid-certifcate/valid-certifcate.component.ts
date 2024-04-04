@@ -128,7 +128,8 @@ export class ValidCertifcateComponent implements OnInit {
     this.service.getAllData(pageNumber, searchQuery, requestTypeFilter, usageTypeFilter, addedDateFilter).subscribe(
       (res: any) => {
         console.log('Response from API:', res);
-        this.totalCount = res.counts;
+        this.totalCount = res. count
+        ;
         this.dataSource.data = this.mappingTasks(res.data);
       },
       (error) => {

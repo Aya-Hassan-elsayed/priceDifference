@@ -1,5 +1,5 @@
 <!-- valid.component.html -->
-<ngx-spinner  bdColor = "rgba(0, 0, 0, 0.8)" size = "large" color = "#ee0659" type = "ball-circus" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+<!-- <ngx-spinner  bdColor = "rgba(0, 0, 0, 0.8)" size = "large" color = "#ee0659" type = "ball-circus" [fullScreen] = "true"><p style="color: white" >{{'general.Loading'|translate}}... </p></ngx-spinner> -->
 
 <app-header></app-header>
 <form class="row mt-6" style="width: 100%;">
@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-md-12 pl-5">
         <mat-form-field appearance="outline" class="w-100">
-          <mat-label>Search by RequestNumber</mat-label>
+          <mat-label>{{'input.Search by RequestNumber'|translate}}</mat-label>
           <input matInput placeholder="Search by RequestNumber" (change)="search($event)" #input/>
           <button mat-button matSuffix mat-stroked-button aria-label="search">
             <mat-icon style="color: rgba(170, 143, 23, 0.87); font-size: 23px; font-weight: bold;">search</mat-icon>
@@ -21,7 +21,7 @@
     <div class="row">
       <div class="col-md-12">
         <mat-form-field appearance="outline" class="w-100">
-          <mat-label>Type_After</mat-label>
+          <mat-label>{{'input.Type_After'|translate}}</mat-label>
           <mat-select (selectionChange)="applyRequestTypeFilter($event.value)" style="width: 100%;">
             <mat-option *ngFor="let type of requestTypes" [value]="type.value">{{ type.label }}</mat-option>
           </mat-select>
@@ -33,7 +33,7 @@
     <div class="row">
       <div class="col-md-12">
         <mat-form-field appearance="outline" class="w-100">
-          <mat-label>UsageType_After</mat-label>
+          <mat-label>{{'input.UsageType_After'|translate}}</mat-label>
           <mat-select (selectionChange)="applyUsageTypeFilter($event.value)" style="width: 100%;">
             <mat-option *ngFor="let type of usageType" [value]="type.value">{{ type.label }}</mat-option>
           </mat-select>
@@ -44,13 +44,13 @@
   <div class="col-md-3">
     <div class="row">
       <div class="col-md-12">
-        <mat-form-field appearance="outline" class="w-100">
-          <mat-label> Date Filter:</mat-label>
-          <input matInput type="date" id="addedDateFilter" (change)="onDateFilterChange($event)" style="width: 100%; color: #ee0659;"#date>
-        </mat-form-field>
+        
+      <input matInput type="date" id="addedDateFilter"placeholder="Date Filter" (change)="onDateFilterChange($event)" class="date"  #date>
       </div>
     </div>
   </div>
+  
+
 </form>
 
   
@@ -63,68 +63,68 @@
 
       <!-- Position Column -->
       <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <th mat-header-cell *matHeaderCellDef>{{'tabel.No'|translate}}</th>
         <td mat-cell *matCellDef="let element; let index = index">{{ index + 1 }}</td>
       </ng-container>
 
       <!-- Name Column -->
       <ng-container matColumnDef="requestNumber">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>RequestNumber</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'tabel.RequestNumber'|translate}}</th>
         <td mat-cell *matCellDef="let element"> {{element.requestNumber}} </td>
       </ng-container>
       
        <!-- Status Column -->
        <ng-container matColumnDef="typeBefor">
-        <th mat-header-cell *matHeaderCellDef  mat-sort-header>Type_Before</th>
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header>{{'tabel.Type_Before'|translate}}</th>
         <td mat-cell *matCellDef="let element">{{ element.typeBefor}}</td>
       </ng-container>
 
         <!-- Status Column -->
       <ng-container matColumnDef="usageTypeBefor">
-        <th mat-header-cell *matHeaderCellDef  mat-sort-header>UsageType_Before</th>
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header>{{'tabel.UsageType_Before'|translate}}</th>
         <td mat-cell *matCellDef="let element">{{ element.usageTypeBefor}}</td>
       </ng-container>
 
       <!-- Status Column -->
       <ng-container matColumnDef="areabefor">
-        <th mat-header-cell *matHeaderCellDef  mat-sort-header>Area_Before</th>
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header>{{'tabel.Area_Before'|translate}}</th>
         <td mat-cell *matCellDef="let element">{{ element.areabefor}}</td>
       </ng-container>
       
       <ng-container matColumnDef="priceBfor">
-        <th mat-header-cell *matHeaderCellDef  mat-sort-header>Price_Before</th>
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header>{{'tabel.Price_Before'|translate}}</th>
         <td mat-cell *matCellDef="let element">{{ element.priceBfor}}</td>
       </ng-container>
       <!--about after -->
       <!-- Weight Column -->
       <ng-container matColumnDef="requestType">
-        <th mat-header-cell *matHeaderCellDef  mat-sort-header> Type_After </th>
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> {{'tabel.Type_After'|translate}}</th>
         <td mat-cell *matCellDef="let element">{{ element.requestType}}</td>
       </ng-container>
 
       <!-- DeadLine Date Column -->
       <ng-container matColumnDef="usageType">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>UsageType_After</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'tabel.UsageType_After'|translate}}</th>
         <td mat-cell *matCellDef="let element">{{ element.usageType }}</td>
       </ng-container>
 
      
        <ng-container matColumnDef="area">
-        <th mat-header-cell *matHeaderCellDef  mat-sort-header>Area_After</th>
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header>{{'tabel.Area_After'|translate}}</th>
         <td mat-cell *matCellDef="let element">{{ element.area}}</td>
       </ng-container>
  <!-- Status Column -->
 
   <!-- Status Column -->
   <ng-container matColumnDef="price">
-    <th mat-header-cell *matHeaderCellDef  mat-sort-header>Price_After</th>
+    <th mat-header-cell *matHeaderCellDef  mat-sort-header>{{'tabel.Price_After'|translate}}</th>
     <td mat-cell *matCellDef="let element">{{ element.price}}</td>
   </ng-container>
    <!-- Status Column -->
       
        <!-- Status Column -->
        <ng-container style="color: rgba(170, 143, 23, 0.87);" matColumnDef="priceDefernce">
-        <th mat-header-cell *matHeaderCellDef  mat-sort-header>Price_Defernce</th>
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header>{{'tabel.Price_Defernce'|translate}}</th>
         <td mat-cell *matCellDef="let element">{{ element.priceDefernce}}</td>
       </ng-container>
 
@@ -134,19 +134,19 @@
       <!--shows when Data Does not EXIST-->
   
       <tr *matNoDataRow style="font-size: 20px;">
-        <td class="mat-cell" colspan="4" style="color: red;">i dont have any data of this:
+        <td class="mat-cell" colspan="4" style="color: red;">{{'general.tr'|translate}}
           {{input.value}}{{date.value}}
 
         </td>
       </tr>
       
     </table>
-    <div class="d-flex justify-content-center mt-3">
+    <div class="d-flex justify-content-center mt-3"  dir="ltr">
       <nav aria-label="Page navigation example">
         <ul class="pagination">
-          <li class="page-item"><button class="page-link" (click)="Pagination.onFirst() ">First</button></li>
+          <li class="page-item"><button class="page-link" (click)="Pagination.onFirst() ">{{'pagnation.First'|translate}}</button></li>
    
-          <li class="page-item"><button class="page-link" (click)="Pagination.onPervious()">Previous</button></li>
+          <li class="page-item"><button class="page-link" (click)="Pagination.onPervious()">{{'pagnation.Previous'|translate}}</button></li>
           <input #Pagination="Pagination" 
           appPagination 
           type="number"
@@ -156,11 +156,11 @@
           value="1"
           (onchangeEventEmitter)="onpagechange($event)"/>
    
-          <li class="page-item"><button class="page-link"(click)="Pagination.onNext()" >Next</button></li>
-          <li class="page-item"><button class="page-link" (click)="Pagination.onLast() " >least</button></li>
+          <li class="page-item"><button class="page-link"(click)="Pagination.onNext()" >{{'pagnation.Next'|translate}}</button></li>
+          <li class="page-item"><button class="page-link" (click)="Pagination.onLast() " >{{'pagnation.least'|translate}}</button></li>
         </ul>
       </nav>
-      <div class="total-count btn "><span style="color: #ee0659;">Total Count: </span><span style="color: #ee0659;">{{ totalCount }}</span></div>
+      <div class="total-count btn "><span style="color: #ee0659;">{{'pagnation.totalCount'|translate}}: </span><span style="color: #ee0659;">{{ totalCount }}</span></div>
 
       </div>
       </div>

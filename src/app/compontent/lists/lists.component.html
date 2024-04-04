@@ -1,8 +1,8 @@
 <!-- app.component.html -->
 <app-header></app-header>
 
-<div class="page-container">
-  <h1 class="center-text">المركز التكنولوجي للتسجيل المساحي العقاري</h1>
+<div class="page-container" dir="ltr">
+  <h1 class="center-text">    {{'general.text'|translate}}</h1>
 
   <div class="flex justify-content-center align-items-center h-full">
     <div class="content">
@@ -12,7 +12,7 @@
           <p><i class="fas fa-dollar-sign"></i>.</p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button class="buttoncontent" (click)="getvalidcertificate()">Valid Certificate</button>
+          <button mat-button class="buttoncontent" (click)="getvalidcertificate()">{{'buttons.Valid Certificate'|translate}}</button>
         </mat-card-actions>
       </mat-card>
     </div>
@@ -21,7 +21,7 @@
       <mat-card class="mat-elevation-z4">
         <img mat-card-image src="../../../assets/images/header/logo.png" alt="logo" />
         <mat-card-actions>
-          <button mat-button class="buttoncontent" (click)="getinvalidcertificate()">Invalid Certificate</button>
+          <button mat-button class="buttoncontent" (click)="getinvalidcertificate()">{{'buttons.Invalid Certificate'|translate}}</button>
         </mat-card-actions>
       </mat-card>
     </div>
@@ -30,7 +30,7 @@
       <mat-card class="mat-elevation-z4">
         <img mat-card-image src="../../../assets/images/header/logo.png" alt="logo" />
         <mat-card-actions>
-          <button mat-button class="buttoncontent" (click)="getallcertificate()">Get All Certificates</button>
+          <button mat-button class="buttoncontent" (click)="getallcertificate()">{{'buttons.Get All Certificates'|translate}}</button>
         </mat-card-actions>
       </mat-card>
     </div>

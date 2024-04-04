@@ -79,7 +79,7 @@ export class ListsComponent implements OnInit {
     // Simulate an asynchronous operation (e.g., HTTP request)
     setTimeout(() => {
       this.hideSpinner();
-    }, 200); // Adjust the timeout as needed
+    }, 50); // Adjust the timeout as needed
     this.router.navigate(['/valid-certifcate']);
   }
   getinvalidcertificate(){
@@ -89,7 +89,7 @@ export class ListsComponent implements OnInit {
     // Simulate an asynchronous operation (e.g., HTTP request)
     setTimeout(() => {
       this.hideSpinner();
-    }, 200); 
+    }, 50); 
     this.router.navigate(['/invalid-certifcate']);
   }
   getallcertificate(){
@@ -99,7 +99,7 @@ export class ListsComponent implements OnInit {
     // Simulate an asynchronous operation (e.g., HTTP request)
     setTimeout(() => {
       this.hideSpinner();
-    }, 200); 
+    }, 50); 
     this.router.navigate(['/all-data']);
 
   }

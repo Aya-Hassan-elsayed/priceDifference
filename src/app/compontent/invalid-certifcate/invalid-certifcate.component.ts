@@ -126,7 +126,7 @@ export class InvalidCertifcateComponent implements OnInit {
     this.service.getAllData(pageNumber, searchQuery, requestTypeFilter, usageTypeFilter, addedDateFilter).subscribe(
       (res: any) => {
         console.log('Response from API:', res);
-        this.totalCount = res.counts;
+        this.totalCount = res.count;
         this.dataSource.data = this.mappingTasks(res.data);
       },
       (error) => {
@@ -145,7 +145,7 @@ export class InvalidCertifcateComponent implements OnInit {
     return Request.map((item: any) => {
       let areaValue: number | string = 0; // Initialize areaValue with a default value
       
-      if (Array.isArray(item.after.area)) {
+      if (item.after.area && Array.isArray(item.after.area)) {
         areaValue = item.after.area.join(' , ') as unknown as number; // Convert array to string, then to number
       } else {
         areaValue = item.after.area as number; // If area is not an array, directly assign it to areaValue
@@ -158,13 +158,14 @@ export class InvalidCertifcateComponent implements OnInit {
         price: item.after.price  || 'null',
         area: areaValue ,
         priceBfor: item.before.priceBfor || 'null',
-        areabefor: item.before.areabefor  || 'null',
+        areabefor: item.before.areabefor,
         typeBefor: item.before.typeBefor  || 'null',
         usageTypeBefor: item.before.usageTypeBefor  || 'null',
         priceDefernce: item.priceDefernce ,
       };
     });
   }
+
 
   search(event: any) {
     const filterValue = (event.target as HTMLInputElement).value;
