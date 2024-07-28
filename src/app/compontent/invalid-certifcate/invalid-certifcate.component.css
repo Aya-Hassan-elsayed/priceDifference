@@ -4,13 +4,44 @@
     width: 100px;
 }
 .total-count {
-    border: 1px solid #ccc; /* Add border */
-    padding: 5px 10px; /* Add padding */
-    cursor: pointer; /* Change cursor to pointer on hover */
+    border: 1px solid #ccc; 
+    padding: 5px 10px; 
+    cursor: pointer; 
   height:33px;
 
   }
   
   .total-count:hover {
-    background-color: #f0f0f0; /* Change background color on hover */
+    background-color: #f0f0f0; 
   }
+.custom-file-input {
+  border: 1px solid rgba(0, 0, 0, 0.12); 
+  padding: 18px; 
+  width: 100%;
+  color:  #ee0659;; 
+  background-color: #fff;
+  border-radius: 1px ;
+  height: calc(2.25rem + 22px); 
+
+}
+
+.custom-file-input:focus {
+  border-color: #80bdff; 
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); 
+}
+
+.custom-file-label {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer; 
+}
+
+
+.custom-file-label::after {
+  height: calc(2.25rem + 2px); 
+  line-height: 2.25rem;
+}
+
+  

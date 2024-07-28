@@ -27,7 +27,9 @@
         "Search by RequestNumber":"البحث عن طريق رقم الطلب ",
         "Type_After":"نوع الطلب بعد الرفع المساحي ",
         "UsageType_After":"الاستخدام بعد الرفع المسلحي ",
-        "Date_Filter":"تاريخ الطباعة"
+        "Date_Filter":"تاريخ الطباعة",
+        "filtereada":"تاريخ الأعادة "
+
     },
     "footer":{
         "reserved":"جميع الحقوق محفوظة © ٢٠٢٢"

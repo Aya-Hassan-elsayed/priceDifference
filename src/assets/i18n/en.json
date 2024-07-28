@@ -27,7 +27,8 @@
         "Search by RequestNumber":"Search by RequestNumber",
         "Type_After":"Type_After",
         "UsageType_After":"UsageType_After",
-        "Date_Filter":"Date Filter"
+        "Date_Filter":"Date Filter",
+        "filtereada":"Eada Filter"
     },
     "footer":{
         "reserved":"All Rights Reserved © 2022"

@@ -8,6 +8,7 @@ import { NgbCalendar, NgbDate, NgbDatepickerConfig, NgbDateStruct } from '@ng-bo
 import { TranslateService } from '@ngx-translate/core';
 import { DatePipe } from '@angular/common';
 import { AllDataService } from 'src/app/services/all-data.service';
+import { NgxSpinner, NgxSpinnerService } from 'ngx-spinner';
 
 export interface PeriodicElement {
   //after
@@ -51,6 +52,7 @@ export class AllDataComponent  implements OnInit {
   totalPage: number = 0;
   totalCount: number = 0;
   addedDateFilter: string = '';
+  addeddatefiltereada:string='';
   selectedFilter: string = '';
   usageTypeFilter: string = '';
   requestTypeFilter: string = '';
@@ -125,21 +127,24 @@ export class AllDataComponent  implements OnInit {
   ];
 
 
-  constructor(private service:AllDataService, public dialog: MatDialog,private router: Router) {
+  constructor(private service:AllDataService, public dialog: MatDialog,private router: Router, private spinner:NgxSpinnerService) {
 
    }
 
 
   ngOnInit(): void {
-    this.getAllData(this.currentPage, '', '', '', '');
+    this.getAllData(this.currentPage, '', '', '', '','');
   }
 
-  getAllData(pageNumber: number, searchQuery: string, requestTypeFilter: string, usageTypeFilter: string, addedDateFilter: string) {
-    this.service.getAllData(pageNumber, searchQuery, requestTypeFilter, usageTypeFilter, addedDateFilter).subscribe(
+  getAllData(pageNumber: number, searchQuery: string, requestTypeFilter: string, usageTypeFilter: string, addedDateFilter: string,addeddatefiltereada:string) {
+    // this.spinner.show()
+    this.service.getAllData(pageNumber, searchQuery, requestTypeFilter, usageTypeFilter, addedDateFilter,addeddatefiltereada).subscribe(
       (res: any) => {
         console.log('Response from API:', res);
         this.totalCount = res.totalcount;
         this.dataSource.data = this.mappingTasks(res.data);
+        // this.spinner.hide()
+
       },
       (error) => {
         console.error('Error fetching data:', error);
@@ -180,17 +185,21 @@ export class AllDataComponent  implements OnInit {
   search(event: any) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-    this.getAllData(this.currentPage, filterValue, this.requestTypeFilter, this.usageTypeFilter, this.addedDateFilter);
+    this.getAllData(this.currentPage, filterValue, this.requestTypeFilter, this.usageTypeFilter, this.addedDateFilter,this.addeddatefiltereada);
   }
 
   onpagechange(pagenumber: number) {
     this.currentPage = pagenumber;
-    this.getAllData(this.currentPage, '', this.requestTypeFilter, this.usageTypeFilter, this.addedDateFilter);
+    this.getAllData(this.currentPage, '', this.requestTypeFilter, this.usageTypeFilter, this.addedDateFilter,this.addeddatefiltereada);
   }
-
   applyAddedDateFilter(dateFilter: string) {
     this.addedDateFilter = dateFilter;
-    this.getAllData(this.currentPage, '', '', '', this.addedDateFilter);
+    this.getAllData(this.currentPage, '', '', '', this.addedDateFilter, this.addeddatefiltereada);
+  }
+
+  applyEadaDateFilter(eadaFilter: string) {
+    this.addeddatefiltereada = eadaFilter;
+    this.getAllData(this.currentPage, '', '', '', this.addedDateFilter, this.addeddatefiltereada);
   }
 
   onDateFilterChange(event: any) {
@@ -198,13 +207,19 @@ export class AllDataComponent  implements OnInit {
     this.applyAddedDateFilter(date);
   }
 
+  onEadaDateFilterChange(event: any) {
+    const date = (event.target as HTMLInputElement).value;
+    this.applyEadaDateFilter(date);
+  }
+
+
   applyRequestTypeFilter(requestType: string) {
     this.requestTypeFilter = requestType;
-    this.getAllData(this.currentPage, '', this.requestTypeFilter, this.usageTypeFilter, this.addedDateFilter);
+    this.getAllData(this.currentPage, '', this.requestTypeFilter, this.usageTypeFilter, this.addedDateFilter,this.addeddatefiltereada);
   }
 
  applyUsageTypeFilter(usageType: string) {
     this.usageTypeFilter = usageType;
-    this.getAllData(this.currentPage, '', this.requestTypeFilter, this.usageTypeFilter, this.addedDateFilter);
+    this.getAllData(this.currentPage, '', this.requestTypeFilter, this.usageTypeFilter, this.addedDateFilter,this.addeddatefiltereada);
   }
 }

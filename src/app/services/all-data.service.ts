@@ -10,9 +10,9 @@ import { environment } from 'src/environments/environment.development';
 export class AllDataService {
   constructor(private http: HttpClient) {}
 
-  getAllData(pagenumber: number, searchQuery: any, requestTypeFilter: string, usagetypeFilter: string, addedDateFilter: string): Observable<any> {
+  getAllData(pagenumber: number, searchQuery: any, requestTypeFilter: string, usagetypeFilter: string, addedDateFilter: string,addeddatefiltereada:string): Observable<any> {
     // Adjust your API endpoint and parameters accordingly
-    return this.http.get(`${environment.baseApi}/LiveAllData?pagenumber=${pagenumber}&requestNumber=${searchQuery}&requestType=${requestTypeFilter}&usagetype=${usagetypeFilter}&addedDateFilter=${addedDateFilter}`);
+    return this.http.get(`${environment.baseApi}/LiveAllData?pagenumber=${pagenumber}&requestNumber=${searchQuery}&requestType=${requestTypeFilter}&usagetype=${usagetypeFilter}&addedDateFilter=${addedDateFilter}&addeddatefiltereada=${addeddatefiltereada}`);
   }
   }
   
