@@ -1,0 +1,14 @@
+.footer {
+  background-color: lightgray;
+  color: #493d05de;
+  padding: 20px;
+  bottom: 0;
+  width: 100%;
+  font-size: bold;
+  position: absolute;
+}
+
+.footer p {
+  font-size: 20px;
+  margin: 0; /* Remove default margin */
+}
