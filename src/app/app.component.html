@@ -1,4 +1,14 @@
 <div>
+    <div class="api-waking-message" *ngIf="apiWakingUp$ | async">
+  <div class="api-waking-box">
+    <div class="spinner"></div>
+
+    <div>
+      <strong>Connecting to server...</strong>
+      <p>Please wait a moment while the server wakes up.</p>
+    </div>
+  </div>
+</div>
 <router-outlet></router-outlet>
 <p-toast></p-toast>
 <ngx-spinner  bdColor = "rgba(0, 0, 0, 0.8)" size = "large" color = "#ee0659" type = "ball-circus" [fullScreen] = "true"><p style="color: white" >{{'general.Loading'|translate}}... </p></ngx-spinner>

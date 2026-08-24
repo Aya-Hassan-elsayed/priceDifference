@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import {TranslateService} from "@ngx-translate/core";
+import { TranslateService } from '@ngx-translate/core';
+import { ApiStatusService } from './services/api-status.service';
 
 @Component({
   selector: 'app-root',
@@ -7,19 +8,29 @@ import {TranslateService} from "@ngx-translate/core";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
- 
-  lang: string = 'en'; // Default to English
 
-  constructor(private translate: TranslateService) {
-    this.lang = localStorage.getItem('language') || 'en'; // Initialize language
-    this.translate.use(this.lang); // Set initial language
+  lang: string = 'en';
 
-    // Update page direction based on language
+  apiWakingUp$ = this.apiStatus.wakingUp$;
+
+  constructor(
+    private translate: TranslateService,
+    private apiStatus: ApiStatusService
+  ) {
+
+    this.lang =
+      localStorage.getItem('language') || 'en';
+
+    this.translate.use(this.lang);
+
     if (this.lang === 'ar') {
       document.dir = 'rtl';
     } else {
       document.dir = 'ltr';
     }
+
+  
   }
+
   title = 'my-project';
 }

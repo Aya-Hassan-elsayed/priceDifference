@@ -1,40 +1,173 @@
 <!-- app.component.html -->
+
 <app-header></app-header>
 
 <div class="page-container" dir="ltr">
-  <h1 class="center-text">    {{'general.text'|translate}}</h1>
 
-  <div class="flex justify-content-center align-items-center h-full">
+  <!-- Page Title -->
+  <h1 class="center-text">
+    {{ 'general.text' | translate }}
+  </h1>
+
+
+  <!-- Cards -->
+  <div class="flex">
+
+
+    <!-- =========================
+         Valid Certificate
+    ========================== -->
+
     <div class="content">
-      <mat-card class="mat-elevation-z4">
-        <img mat-card-image src="../../../assets/images/header/logo.png" alt="logo" />
+
+      <mat-card class="certificate-card">
+
+        <img
+          mat-card-image
+          src="../../../assets/images/header/logo.png"
+          alt="logo"
+          class="card-image"
+        />
+
+        <div class="card-icon">
+          <i class="fas fa-certificate"></i>
+        </div>
+
         <mat-card-content>
-          <p><i class="fas fa-dollar-sign"></i>.</p>
+
+          <h2>
+            {{ 'buttons.Valid Certificate' | translate }}
+          </h2>
+
+          <p>
+            View all valid certificates available in the system.
+          </p>
+
         </mat-card-content>
+
         <mat-card-actions>
-          <button mat-button class="buttoncontent" (click)="getvalidcertificate()">{{'buttons.Valid Certificate'|translate}}</button>
+
+          <button
+            mat-button
+            class="buttoncontent"
+            (click)="getvalidcertificate()">
+
+            {{ 'buttons.Valid Certificate' | translate }}
+
+            <i class="fas fa-arrow-right"></i>
+
+          </button>
+
         </mat-card-actions>
+
       </mat-card>
+
     </div>
 
-    <div class="content">
-      <mat-card class="mat-elevation-z4">
-        <img mat-card-image src="../../../assets/images/header/logo.png" alt="logo" />
-        <mat-card-actions>
-          <button mat-button class="buttoncontent" (click)="getinvalidcertificate()">{{'buttons.Invalid Certificate'|translate}}</button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
+
+    <!-- =========================
+         Invalid Certificate
+    ========================== -->
 
     <div class="content">
-      <mat-card class="mat-elevation-z4">
-        <img mat-card-image src="../../../assets/images/header/logo.png" alt="logo" />
+
+      <mat-card class="certificate-card">
+
+        <img
+          mat-card-image
+          src="../../../assets/images/header/logo.png"
+          alt="logo"
+          class="card-image"
+        />
+
+        <div class="card-icon">
+          <i class="fas fa-file-circle-xmark"></i>
+        </div>
+
+        <mat-card-content>
+
+          <h2>
+            {{ 'buttons.Invalid Certificate' | translate }}
+          </h2>
+
+          <p>
+            View all invalid certificates available in the system.
+          </p>
+
+        </mat-card-content>
+
         <mat-card-actions>
-          <button mat-button class="buttoncontent" (click)="getallcertificate()">{{'buttons.Get All Certificates'|translate}}</button>
+
+          <button
+            mat-button
+            class="buttoncontent"
+            (click)="getinvalidcertificate()">
+
+            {{ 'buttons.Invalid Certificate' | translate }}
+
+            <i class="fas fa-arrow-right"></i>
+
+          </button>
+
         </mat-card-actions>
+
       </mat-card>
+
     </div>
+
+
+    <!-- =========================
+         All Certificates
+    ========================== -->
+
+    <div class="content">
+
+      <mat-card class="certificate-card">
+
+        <img
+          mat-card-image
+          src="../../../assets/images/header/logo.png"
+          alt="logo"
+          class="card-image"
+        />
+
+        <div class="card-icon">
+          <i class="fas fa-folder-open"></i>
+        </div>
+
+        <mat-card-content>
+
+          <h2>
+            {{ 'buttons.Get All Certificates' | translate }}
+          </h2>
+
+          <p>
+            View all certificates available in the system.
+          </p>
+
+        </mat-card-content>
+
+        <mat-card-actions>
+
+          <button
+            mat-button
+            class="buttoncontent"
+            (click)="getallcertificate()">
+
+            {{ 'buttons.Get All Certificates' | translate }}
+
+            <i class="fas fa-arrow-right"></i>
+
+          </button>
+
+        </mat-card-actions>
+
+      </mat-card>
+
+    </div>
+
   </div>
+
 </div>
 
 <app-footer></app-footer>

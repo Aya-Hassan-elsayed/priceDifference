@@ -1,58 +1,340 @@
+/* =====================================
+   NAVBAR
+===================================== */
+
 .navbar {
+  width: 100%;
+  height: 80px;
+
+  padding: 0 30px;
+
+  box-sizing: border-box;
+
+  background-color: #f1f1f1;
+
   display: flex;
-  justify-content: space-between;
+
   align-items: center;
-  padding: 10px;
-  background-color: lightgray;
-  color: white;
+
+  justify-content: space-between;
+
+  position: relative;
+
+  z-index: 1000;
+
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.start img,
-.menu img {
-  width: 100px; /* Adjust the size as needed */
-  height: 100px;
+
+/* =====================================
+   LOGO
+===================================== */
+
+.start {
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+}
+
+
+#logo {
+  width: 130px;
+
+  height: 65px;
+
+  object-fit: contain;
+
+  display: block;
+
   cursor: pointer;
+
+  transition: transform 0.25s ease;
 }
 
-button {
-  margin: 10px;
+
+#logo:hover {
+  transform: scale(1.04);
 }
 
-mat-icon {
-  margin-right: 8px;
-  color: rgba(170, 143, 23, 0.87);
-  font-size: 24px;
-}
 
-div {
-  overflow: inherit;
-}
-
-a {
-  text-decoration: none;
-  font-size: 110%;
-  white-space: normal;
-}
+/* =====================================
+   SPACER
+===================================== */
 
 .example-spacer {
   flex: 1 1 auto;
 }
 
-mat-button {
-  color: white;
+
+/* =====================================
+   DESKTOP MENU
+===================================== */
+
+.desktop-menu {
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
 }
 
-.mat-mdc-button:not(:disabled) {
-  color: rgba(170, 143, 23, 0.87);
-  font-size: 20px;
-  padding-right: 30px;
+
+/* =====================================
+   NAV BUTTONS
+===================================== */
+
+.nav-button {
+  height: 48px !important;
+
+  padding: 0 14px !important;
+
+  color: #493d05de !important;
+
+  font-size: 16px !important;
+
+  font-weight: 600 !important;
+
+  border-radius: 7px;
+
+  display: flex !important;
+
+  align-items: center;
+
+  gap: 4px;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
+
+
+.nav-button:hover {
+  background-color: rgba(170, 143, 23, 0.10);
+}
+
+
+/* =====================================
+   MATERIAL ICONS
+===================================== */
+
+.navbar mat-icon {
+  margin-right: 6px;
+
+  color: rgba(170, 143, 23, 0.87);
+
+  font-size: 22px;
+
+  width: 22px;
+
+  height: 22px;
+}
+
+
+/* =====================================
+   LANGUAGE
+===================================== */
+
+.language-button {
+  height: 48px !important;
+
+  padding: 0 12px !important;
+
+  color: #493d05de !important;
+
+  font-size: 16px !important;
+
+  font-weight: 600 !important;
+
+  display: flex !important;
+
+  align-items: center;
+
+  gap: 8px;
+
+  cursor: pointer;
+}
+
+
+.language-button img {
+  width: 22px;
+
+  height: 22px;
+
+  object-fit: contain;
+}
+
+
+/* =====================================
+   CURRENT SECTION
+===================================== */
 
 .current-section {
   position: absolute;
+
   left: 50%;
+
   transform: translateX(-50%);
+
   color: #493d05de;
+
   font-size: 20px;
-  font-weight: bold;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  pointer-events: none;
+}
+
+
+/* =====================================
+   MOBILE MENU BUTTON
+===================================== */
+
+.mobile-menu-button {
+  display: none;
+
+  color: rgba(170, 143, 23, 0.87) !important;
+
+  margin: 0 !important;
+}
+
+
+.mobile-menu-button mat-icon {
+  margin: 0;
+}
+
+
+/* =====================================
+   MENU ITEMS
+===================================== */
+
+::ng-deep .mat-mdc-menu-item {
+  min-height: 48px;
+}
+
+
+::ng-deep .mat-mdc-menu-item mat-icon {
+  color: rgba(170, 143, 23, 0.87);
+}
+
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 900px) {
+
+  .navbar {
+    height: 75px;
+
+    padding: 0 20px;
+  }
+
+  #logo {
+    width: 115px;
+
+    height: 60px;
+  }
+
+  .nav-button {
+    padding: 0 9px !important;
+
+    font-size: 14px !important;
+  }
+
+  .current-section {
+    font-size: 18px;
+  }
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 768px) {
+
+  .navbar {
+    height: 70px;
+
+    padding: 0 15px;
+  }
+
+
+  #logo {
+    width: 105px;
+
+    height: 55px;
+  }
+
+
+  .desktop-menu {
+    display: none;
+  }
+
+
+  .mobile-menu-button {
+    display: flex;
+  }
+
+
+  .current-section {
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    max-width: 40%;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    font-size: 16px;
+  }
+
+}
+
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 480px) {
+
+  .navbar {
+    height: 65px;
+
+    padding: 0 10px;
+  }
+
+
+  #logo {
+    width: 90px;
+
+    height: 50px;
+  }
+
+
+  .current-section {
+    max-width: 38%;
+
+    font-size: 14px;
+  }
+
+
+  .mobile-menu-button {
+    width: 44px;
+
+    height: 44px;
+  }
+
 }

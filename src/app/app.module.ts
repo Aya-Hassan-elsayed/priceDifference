@@ -42,6 +42,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ApiRetryInterceptor } from './api-retry.interceptor';
 
 
 
@@ -105,7 +107,14 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 
   ],
  
-  providers: [MessageService],
+providers: [
+  MessageService,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: ApiRetryInterceptor,
+    multi: true
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

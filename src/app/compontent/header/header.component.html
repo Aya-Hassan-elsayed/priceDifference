@@ -1,41 +1,193 @@
 <div class="navbar" dir="ltr">
+
+  <!-- Logo -->
   <div class="start">
-      <img src="../../../assets/images/header/logo.png" id="logo" alt="logo" style="width:200%; height: 60px; margin-top: 10px;" />
+    <img
+      src="../../../assets/images/header/logo.png"
+      id="logo"
+      alt="logo"
+    />
   </div>
-  
+
+
+  <!-- Spacer -->
   <span class="example-spacer"></span>
-  
-  <div fxShow="true" fxHide.lt-md="true">
-      <a mat-button routerLink="/lists">
-          <mat-icon>home</mat-icon>
-          <span style="color: #493d05de; font-weight: bold;">{{'navbar.Home'|translate}}</span>
-      </a>
-      <button mat-button [matMenuTriggerFor]="menu" aria-label="User Account">
-          <span style="color: #493d05de; font-weight: bold;">{{'navbar.Certificate'|translate}}</span>
-          <mat-icon>arrow_drop_down</mat-icon>
+
+
+  <!-- Desktop Menu -->
+  <div
+    class="desktop-menu"
+    fxShow="true"
+    fxHide.lt-md="true"
+  >
+
+    <!-- Home -->
+    <a
+      mat-button
+      routerLink="/lists"
+      class="nav-button"
+    >
+      <mat-icon>home</mat-icon>
+
+      <span>
+        {{ 'navbar.Home' | translate }}
+      </span>
+    </a>
+
+
+    <!-- Certificate -->
+    <button
+      mat-button
+      [matMenuTriggerFor]="menu"
+      class="nav-button"
+    >
+
+      <span>
+        {{ 'navbar.Certificate' | translate }}
+      </span>
+
+      <mat-icon>arrow_drop_down</mat-icon>
+
+    </button>
+
+
+    <!-- Certificate Menu -->
+    <mat-menu #menu="matMenu">
+
+      <button
+        mat-menu-item
+        (click)="getvalidcertificate()"
+      >
+        <mat-icon>verified</mat-icon>
+
+        {{ 'buttons.Valid Certificate' | translate }}
       </button>
-      <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="getvalidcertificate()">
-              <mat-icon style="color: rgba(170, 143, 23, 0.87);">home</mat-icon>{{'buttons.Valid Certificate'|translate}}
-          </button>
-          <button mat-menu-item (click)="getinvalidcertificate()">
-              <mat-icon style="color: rgba(170, 143, 23, 0.87);">home</mat-icon>{{'buttons.Invalid Certificate'|translate}}</button>
-          <button mat-menu-item (click)="getallcertificate()">
-              <mat-icon style="color: rgba(170, 143, 23, 0.87);">home</mat-icon>{{'buttons.Get All Certificates'|translate}}</button>
-      </mat-menu>
-      <a mat-button (click)="changeLanguage()">
-          <span style="color: #493d05de; font-weight: bold;">{{ lang == 'en' ? '(ع)' : '(en)' }}</span>
-          <img *ngIf="lang == 'ar'" src="../../../assets/images/header/eng.png" style="width: 20px; height: 20px;">
-          <img *ngIf="lang == 'en'" src="../../../assets/images/header/ar.png" style="width: 20px; height: 20px;">
-      </a>
+
+
+      <button
+        mat-menu-item
+        (click)="getinvalidcertificate()"
+      >
+        <mat-icon>cancel</mat-icon>
+
+        {{ 'buttons.Invalid Certificate' | translate }}
+      </button>
+
+
+      <button
+        mat-menu-item
+        (click)="getallcertificate()"
+      >
+        <mat-icon>folder_open</mat-icon>
+
+        {{ 'buttons.Get All Certificates' | translate }}
+      </button>
+
+    </mat-menu>
+
+
+    <!-- Language -->
+    <a
+      mat-button
+      (click)="changeLanguage()"
+      class="language-button"
+    >
+
+      <span>
+        {{ lang == 'en' ? '(ع)' : '(en)' }}
+      </span>
+
+      <img
+        *ngIf="lang == 'ar'"
+        src="../../../assets/images/header/eng.png"
+        alt="English"
+      />
+
+      <img
+        *ngIf="lang == 'en'"
+        src="../../../assets/images/header/ar.png"
+        alt="Arabic"
+      />
+
+    </a>
+
   </div>
-  
-  <button mat-button [matMenuTriggerFor]="menu">
-      <mat-icon>menu</mat-icon>
+
+
+  <!-- Mobile Menu -->
+  <button
+    mat-icon-button
+    [matMenuTriggerFor]="mobileMenu"
+    class="mobile-menu-button"
+    aria-label="Menu"
+  >
+    <mat-icon>menu</mat-icon>
   </button>
-  
-  <!-- Display the current section in the middle of the navbar -->
-  <div class="current-section" *ngIf="currentSection">
-      {{ currentSection }}
+
+
+  <!-- Mobile Menu -->
+  <mat-menu #mobileMenu="matMenu">
+
+    <button
+      mat-menu-item
+      routerLink="/lists"
+    >
+      <mat-icon>home</mat-icon>
+
+      {{ 'navbar.Home' | translate }}
+    </button>
+
+
+    <button
+      mat-menu-item
+      (click)="getvalidcertificate()"
+    >
+      <mat-icon>verified</mat-icon>
+
+      {{ 'buttons.Valid Certificate' | translate }}
+    </button>
+
+
+    <button
+      mat-menu-item
+      (click)="getinvalidcertificate()"
+    >
+      <mat-icon>cancel</mat-icon>
+
+      {{ 'buttons.Invalid Certificate' | translate }}
+    </button>
+
+
+    <button
+      mat-menu-item
+      (click)="getallcertificate()"
+    >
+      <mat-icon>folder_open</mat-icon>
+
+      {{ 'buttons.Get All Certificates' | translate }}
+    </button>
+
+
+    <button
+      mat-menu-item
+      (click)="changeLanguage()"
+    >
+
+      <mat-icon>language</mat-icon>
+
+      {{ lang == 'en' ? '(ع)' : '(en)' }}
+
+    </button>
+
+  </mat-menu>
+
+
+  <!-- Current Section -->
+  <div
+    class="current-section"
+    *ngIf="currentSection"
+  >
+    {{ currentSection }}
   </div>
+
 </div>

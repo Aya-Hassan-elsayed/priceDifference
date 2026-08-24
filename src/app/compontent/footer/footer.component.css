@@ -1,14 +1,96 @@
+/* =========================
+   Footer
+========================= */
+
 .footer {
-  background-color: lightgray;
-  color: #493d05de;
-  padding: 20px;
-  bottom: 0;
   width: 100%;
-  font-size: bold;
-  position: absolute;
+  min-height: 70px;
+
+  background-color: #f1f1f1;
+
+  color: #493d05de;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px 25px;
+
+  border-top: 1px solid rgba(73, 61, 5, 0.12);
+
+  position: relative;
+
+  z-index: 10;
 }
 
+
+/* =========================
+   Footer Container
+========================= */
+
+.footer-container {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+/* =========================
+   Footer Text
+========================= */
+
 .footer p {
-  font-size: 20px;
-  margin: 0; /* Remove default margin */
+  margin: 0;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  line-height: 1.5;
+}
+
+
+/* =========================
+   Tablet
+========================= */
+
+@media (max-width: 768px) {
+
+  .footer {
+    min-height: 65px;
+
+    padding: 14px 20px;
+  }
+
+  .footer p {
+    font-size: 15px;
+  }
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 480px) {
+
+  .footer {
+    min-height: 60px;
+
+    padding: 12px 15px;
+  }
+
+  .footer p {
+    font-size: 13px;
+
+    line-height: 1.6;
+  }
 }
